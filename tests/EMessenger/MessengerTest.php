@@ -17,7 +17,7 @@ class MessengerTest extends \PHPUnit_Framework_TestCase
     public function it_works_with_unix_transport()
     {
         $loop = LoopFactory::create();
-        $transport = new UnixTransport($loop, 'unix://tmp/test.sock');
+        $transport = new UnixTransport($loop, 'unix://' . $this->getUnixPath());
 
         $this->transport_works($loop, $transport);
     }
@@ -57,8 +57,13 @@ class MessengerTest extends \PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        if (file_exists('tmp/test.sock')) {
-            unlink('tmp/test.sock');
+        if (file_exists($this->getUnixPath())) {
+            unlink($this->getUnixPath());
         }
+    }
+
+    public function getUnixPath()
+    {
+        return realpath(__DIR__ . '/../../') . '/tmp/test.sock';
     }
 }
