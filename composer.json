@@ -1,0 +1,34 @@
+{
+  "name": "cursedcoder/emessenger",
+  "type": "library",
+  "description": "Send messages to php process over protocols.",
+  "keywords": [
+    "IPC",
+    "non-blocking",
+    "async",
+    "react",
+    "unix",
+    "socket"
+  ],
+  "homepage": "https://github.com/cursedcoder/emessenger",
+  "require": {
+    "php": ">=5.6",
+    "react/react": "~0.4@dev",
+    "concerto/comms": "~0.8",
+    "cursedcoder/universal-serializer": "^0.1.0"
+  },
+  "license": "MIT",
+  "require-dev": {
+    "phpunit/phpunit": "^5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "EMessenger\\": "EMessenger"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
