@@ -44,7 +44,7 @@ $loop = EventLoopFactory::create();
 $transport = new UnixTransport($loop, 'unix://tmp/log.sock');
 $messenger = MessengerFactory::client($transport);
 
-$messenger->subscribe('debug', function($debug) {
+$messenger->on('debug', function($debug) {
     echo 'Received debug message: ' . $debug;
 });
 
